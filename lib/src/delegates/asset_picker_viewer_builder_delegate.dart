@@ -890,7 +890,7 @@ class DefaultAssetPickerViewerBuilderDelegate
         },
         child: AnimatedContainer(
           duration: kThemeAnimationDuration,
-          width: 28.0,
+          width: 24.0,
           decoration: BoxDecoration(
             border: !isSelected
                 ? Border.all(color: themeData.iconTheme.color!)
@@ -963,16 +963,10 @@ class DefaultAssetPickerViewerBuilderDelegate
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    if (isAppleOS(context))
-                      _appleOSSelectButton(context, isSelected, asset)
-                    else
-                      _androidSelectButton(context, isSelected, asset),
-                    if (!isAppleOS(context))
-                      ScaleText(
-                        textDelegate.select,
-                        style: const TextStyle(fontSize: 17, height: 1.2),
-                        semanticsLabel: semanticsTextDelegate.select,
-                      ),
+                    // if (isAppleOS(context))
+                      _appleOSSelectButton(context, isSelected, asset),
+                    // else
+                    //   _androidSelectButton(context, isSelected, asset),
                   ],
                 ),
               );

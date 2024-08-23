@@ -11,7 +11,7 @@ import 'extensions.dart';
 Future<AssetEntity?> _pickFromCamera(BuildContext c) {
   return CameraPicker.pickFromCamera(
     c,
-    pickerConfig: const CameraPickerConfig(enableRecording: true),
+    pickerConfig:  CameraPickerConfig(enableRecording: true, textDelegate: const EnglishCameraPickerTextDelegate(), theme: AssetPicker.themeData(const Color(0xFF096DD9))),
   );
 }
 
@@ -161,6 +161,7 @@ class PickMethod {
         return AssetPicker.pickAssets(
           context,
           pickerConfig: AssetPickerConfig(
+            themeColor: const Color(0xFF096DD9),
             maxAssets: maxAssetsCount,
             selectedAssets: assets,
             specialItemPosition: SpecialItemPosition.prepend,

@@ -1418,8 +1418,8 @@ class DefaultAssetPickerBuilderDelegate
       children: <Widget>[
         builder,
         selectedBackdrop(context, currentIndex, asset),
-        if (!isWeChatMoment || asset.type != AssetType.video)
-          selectIndicator(context, index, asset),
+        // if (!isWeChatMoment || asset.type != AssetType.video)
+        //   selectIndicator(context, index, asset),
         itemBannedIndicator(context, asset),
       ],
     );
@@ -1638,7 +1638,7 @@ class DefaultAssetPickerBuilderDelegate
           color: theme.colorScheme.secondary,
           disabledColor: theme.splashColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(3),
+            borderRadius: BorderRadius.circular(8),
           ),
           onPressed: shouldAllowConfirm
               ? () {
@@ -1647,10 +1647,7 @@ class DefaultAssetPickerBuilderDelegate
               : null,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           child: ScaleText(
-            isSelectedNotEmpty && !isSingleAssetMode
-                ? '${textDelegate.confirm}'
-                    ' (${p.selectedAssets.length}/${p.maxAssets})'
-                : textDelegate.confirm,
+            textDelegate.confirm,
             style: TextStyle(
               color: shouldAllowConfirm
                   ? theme.textTheme.bodyLarge?.color
@@ -2100,7 +2097,7 @@ class DefaultAssetPickerBuilderDelegate
                   color: p.isSelectedNotEmpty
                       ? null
                       : c.textTheme.bodySmall?.color,
-                  fontSize: 17,
+                  fontSize: 14,
                 ),
                 maxScaleFactor: 1.2,
                 semanticsLabel: '${semanticsTextDelegate.preview}'
@@ -2214,20 +2211,24 @@ class DefaultAssetPickerBuilderDelegate
                   ? theme.colorScheme.primary.withOpacity(.45)
                   : theme.colorScheme.background.withOpacity(.1),
               child: selected && !isSingleAssetMode
-                  ? Align(
-                      alignment: AlignmentDirectional.topStart,
-                      child: SizedBox(
-                        height: indicatorSize / 2.5,
-                        child: FittedBox(
-                          alignment: AlignmentDirectional.topStart,
-                          fit: BoxFit.cover,
-                          child: Text(
-                            '${index + 1}',
-                            style: TextStyle(
-                              color: theme.textTheme.bodyLarge?.color
-                                  ?.withOpacity(.75),
-                              fontWeight: FontWeight.w600,
-                              height: 1,
+                  ? Container(
+                      color: Colors.transparent,
+                      child: Center(
+                        child: Container(
+                          width: 28,
+                          height: 28,
+                          decoration: BoxDecoration(
+                            color: const Color(0xff1890FF),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '${index + 1}',
+                              style: const TextStyle(
+                                color: Color(0xffFFFFFF),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
