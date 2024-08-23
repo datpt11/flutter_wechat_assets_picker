@@ -164,7 +164,7 @@ class PickMethod {
             themeColor: const Color(0xFF096DD9),
             maxAssets: maxAssetsCount,
             selectedAssets: assets,
-            specialItemPosition: SpecialItemPosition.prepend,
+            specialItemPosition: SpecialItemPosition.append,
             specialItemBuilder: (
               BuildContext context,
               AssetPathEntity? path,
