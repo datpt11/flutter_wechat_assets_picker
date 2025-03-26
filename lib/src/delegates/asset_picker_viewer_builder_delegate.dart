@@ -837,7 +837,7 @@ class DefaultAssetPickerViewerBuilderDelegate
             color: themeData.colorScheme.secondary,
             disabledColor: themeData.splashColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(3),
+              borderRadius: BorderRadius.circular(8),
             ),
             onPressed: isButtonEnabled ? onPressed : null,
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
